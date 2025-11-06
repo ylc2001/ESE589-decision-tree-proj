@@ -73,7 +73,7 @@ class DecisionTreeClassifier:
         X : array-like of shape (n_samples, n_features)
             The training input samples.
         y : array-like of shape (n_samples,)
-            The target values (class labels).
+            The target values (class labels). Must be non-negative integers.
         
         Returns:
         --------
@@ -82,6 +82,12 @@ class DecisionTreeClassifier:
         """
         X = np.array(X)
         y = np.array(y)
+        
+        # Validate input labels
+        if not np.issubdtype(y.dtype, np.integer):
+            raise ValueError("Target labels must be integers")
+        if np.any(y < 0):
+            raise ValueError("Target labels must be non-negative")
         
         self.n_classes_ = len(np.unique(y))
         self.n_features_ = X.shape[1]
@@ -276,7 +282,8 @@ class DecisionTreeClassifier:
         
         Entropy(S) = -Sum(pi * log2(pi))
         """
-        proportions = np.bincount(y) / len(y)
+        # Use minlength to ensure consistent output size
+        proportions = np.bincount(y, minlength=self.n_classes_) / len(y)
         entropy = 0
         for p in proportions:
             if p > 0:
@@ -289,7 +296,8 @@ class DecisionTreeClassifier:
         
         Gini(S) = 1 - Sum(pi^2)
         """
-        proportions = np.bincount(y) / len(y)
+        # Use minlength to ensure consistent output size
+        proportions = np.bincount(y, minlength=self.n_classes_) / len(y)
         return 1 - np.sum(proportions ** 2)
     
     def _most_common_label(self, y: np.ndarray) -> int:
