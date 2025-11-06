@@ -1,0 +1,296 @@
+============================================================
+SYNTHETIC CENSUS-LIKE DATA BENCHMARK
+============================================================
+Creating synthetic dataset with 10000 samples and 14 features...
+Dataset created: 10000 samples, 14 features
+Class distribution: [7466 2534]
+
+Training set size: 8000 samples
+Test set size: 2000 samples
+
+Configuration:
+  Max depth: 10
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 2.73 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7811
+  Test accuracy:       0.7405
+  Training time:       2.73 seconds
+  Train predict time:  0.0096 seconds
+  Test predict time:   0.0024 seconds
+
+============================================================
+Evaluating: gain_ratio
+============================================================
+Training model...
+Training time: 0.17 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7466
+  Test accuracy:       0.7465
+  Training time:       0.17 seconds
+  Train predict time:  0.0013 seconds
+  Test predict time:   0.0004 seconds
+
+============================================================
+Evaluating: gini_index
+============================================================
+Training model...
+Training time: 2.69 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7966
+  Test accuracy:       0.7600
+  Training time:       2.69 seconds
+  Train predict time:  0.0096 seconds
+  Test predict time:   0.0024 seconds
+
+============================================================
+BENCHMARK SUMMARY
+============================================================
+
+Comparison of splitting criteria:
+Criterion            Train Acc    Test Acc     Train Time  
+------------------------------------------------------------
+information_gain     0.7811       0.7405       2.73        
+gain_ratio           0.7466       0.7465       0.17        
+gini_index           0.7966       0.7600       2.69        
+
+Best test accuracy: gini_index (0.7600)
+
+============================================================
+DETAILED EXPERIMENTS
+============================================================
+
+============================================================
+Experiment 1: Effect of max_depth
+============================================================
+Creating synthetic dataset with 5000 samples and 14 features...
+Dataset created: 5000 samples, 14 features
+Class distribution: [3739 1261]
+
+Using information_gain
+Max Depth    Train Acc    Test Acc     Train Time  
+------------------------------------------------------------
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 0.31 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7538
+  Test accuracy:       0.7480
+  Training time:       0.31 seconds
+  Train predict time:  0.0023 seconds
+  Test predict time:   0.0006 seconds
+3            0.7538       0.7480       0.31        
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 0.59 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7615
+  Test accuracy:       0.7470
+  Training time:       0.59 seconds
+  Train predict time:  0.0032 seconds
+  Test predict time:   0.0008 seconds
+5            0.7615       0.7470       0.59        
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 1.59 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7833
+  Test accuracy:       0.7320
+  Training time:       1.59 seconds
+  Train predict time:  0.0047 seconds
+  Test predict time:   0.0012 seconds
+10           0.7833       0.7320       1.59        
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 2.03 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.8030
+  Test accuracy:       0.7220
+  Training time:       2.03 seconds
+  Train predict time:  0.0049 seconds
+  Test predict time:   0.0013 seconds
+15           0.8030       0.7220       2.03        
+
+============================================================
+Experiment 2: Effect of dataset size
+============================================================
+
+Using information_gain with max_depth=10
+Dataset Size Train Acc    Test Acc     Train Time  
+------------------------------------------------------------
+Creating synthetic dataset with 1000 samples and 14 features...
+Dataset created: 1000 samples, 14 features
+Class distribution: [750 250]
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 0.37 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7812
+  Test accuracy:       0.6900
+  Training time:       0.37 seconds
+  Train predict time:  0.0006 seconds
+  Test predict time:   0.0002 seconds
+1000         0.7812       0.6900       0.37        
+Creating synthetic dataset with 2500 samples and 14 features...
+Dataset created: 2500 samples, 14 features
+Class distribution: [1864  636]
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 0.84 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7735
+  Test accuracy:       0.7400
+  Training time:       0.84 seconds
+  Train predict time:  0.0022 seconds
+  Test predict time:   0.0005 seconds
+2500         0.7735       0.7400       0.84        
+Creating synthetic dataset with 5000 samples and 14 features...
+Dataset created: 5000 samples, 14 features
+Class distribution: [3739 1261]
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 1.59 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7833
+  Test accuracy:       0.7320
+  Training time:       1.59 seconds
+  Train predict time:  0.0046 seconds
+  Test predict time:   0.0012 seconds
+5000         0.7833       0.7320       1.59        
+Creating synthetic dataset with 10000 samples and 14 features...
+Dataset created: 10000 samples, 14 features
+Class distribution: [7466 2534]
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 2.74 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7811
+  Test accuracy:       0.7405
+  Training time:       2.74 seconds
+  Train predict time:  0.0095 seconds
+  Test predict time:   0.0024 seconds
+10000        0.7811       0.7405       2.74        
+
+============================================================
+Experiment 3: Criteria comparison on larger dataset
+============================================================
+Creating synthetic dataset with 20000 samples and 14 features...
+Dataset created: 20000 samples, 14 features
+Class distribution: [14951  5049]
+
+Dataset: 20,000 samples, max_depth=10
+Criterion            Train Acc    Test Acc     Train Time  
+------------------------------------------------------------
+
+============================================================
+Evaluating: information_gain
+============================================================
+Training model...
+Training time: 4.79 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7885
+  Test accuracy:       0.7592
+  Training time:       4.79 seconds
+  Train predict time:  0.0210 seconds
+  Test predict time:   0.0053 seconds
+information_gain     0.7885       0.7592       4.79        
+
+============================================================
+Evaluating: gain_ratio
+============================================================
+Training model...
+Training time: 0.30 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7476
+  Test accuracy:       0.7475
+  Training time:       0.30 seconds
+  Train predict time:  0.0026 seconds
+  Test predict time:   0.0007 seconds
+gain_ratio           0.7476       0.7475       0.30        
+
+============================================================
+Evaluating: gini_index
+============================================================
+Training model...
+Training time: 4.71 seconds
+Evaluating on training set...
+Evaluating on test set...
+
+Results:
+  Training accuracy:   0.7901
+  Test accuracy:       0.7575
+  Training time:       4.71 seconds
+  Train predict time:  0.0207 seconds
+  Test predict time:   0.0052 seconds
+gini_index           0.7901       0.7575       4.71        
+
+============================================================
+Benchmark completed!
+============================================================
