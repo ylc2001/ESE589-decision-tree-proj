@@ -336,3 +336,35 @@ class DecisionTreeClassifier:
         """
         y_pred = self.predict(X)
         return np.mean(y_pred == y)
+    
+    def print_tree(self, feature_names=None):
+        """
+        Print the decision tree structure in a human-readable format.
+        
+        Parameters:
+        -----------
+        feature_names : list of str, optional
+            Names of the features. If None, features are referred to by their index.
+        """
+        if self.root is None:
+            print("Tree has not been trained yet.")
+            return
+        
+        def _print_node(node, depth=0, prefix="Root: "):
+            indent = "  " * depth
+            
+            if node.is_leaf:
+                print(f"{indent}{prefix}Predict class {node.value}")
+            else:
+                feature_name = (feature_names[node.feature] 
+                               if feature_names else f"X[{node.feature}]")
+                print(f"{indent}{prefix}if {feature_name} <= {node.threshold:.4f}:")
+                _print_node(node.left, depth + 1, "├─ True: ")
+                print(f"{indent}  else:")
+                _print_node(node.right, depth + 1, "└─ False: ")
+        
+        print("\n" + "="*60)
+        print("Decision Tree Structure")
+        print("="*60)
+        _print_node(self.root)
+        print("="*60 + "\n")
