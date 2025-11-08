@@ -211,3 +211,7 @@ adult.data
 adult.test
 *.csv
 *.dat
+
+# Generated output files
+dataset_plot.png
+view_plot.html
