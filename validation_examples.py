@@ -1,8 +1,5 @@
 """
-Validation example for Decision Tree implementation using linearly separable dataset.
-
-This module demonstrates the Decision Tree classifier on a simple 2D linearly separable
-dataset with visualization and comparison to sklearn's implementation.
+Validation example for Decision Tree implementation using a simple linearly separable dataset.
 """
 
 import numpy as np
@@ -20,31 +17,28 @@ def linearly_separable_dataset():
         [1, 2],
         [2, 3],
         [3, 1],
+        [5, 1],
+        [3, 3],
+        [1, 6],
         [6, 5],
         [7, 8],
         [8, 6],
+        [4, 6],
+        [6, 7],
+        [8, 4],
     ])
-    y = np.array([0, 0, 0, 1, 1, 1])
+    y = np.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
     
     return X, y
 
 
 def plot_dataset(X, y, filename='dataset_plot.png'):
     """
-    Plot the dataset points and save to an image file.
-    
-    Parameters:
-    -----------
-    X : array-like of shape (n_samples, 2)
-        The input samples (2D data).
-    y : array-like of shape (n_samples,)
-        The target values (class labels).
-    filename : str
-        The filename to save the plot.
+    Visualize the dataset points and save to an image file.
     """
     plt.figure(figsize=(8, 6))
     
-    # Plot points for each class
+    # Visualize points for each class
     for class_label in np.unique(y):
         mask = y == class_label
         plt.scatter(X[mask, 0], X[mask, 1], 
@@ -126,25 +120,16 @@ def compare_with_sklearn(X, y, criterion='gini'):
 
 def run_validation():
     """
-    Run the validation example with dataset 2 (linearly separable).
+    Run the validation example with the dataset (linearly separable).
     """
     print("\n" + "="*60)
     print("DECISION TREE VALIDATION EXAMPLE")
-    print("Dataset 2: Linearly Separable Data")
+    print("Dataset: Linearly Separable Data")
     print("="*60)
     
     # Load the dataset
     X, y = linearly_separable_dataset()
-    
-    print(f"\nDataset information:")
-    print(f"  Number of samples: {len(X)}")
-    print(f"  Number of features: {X.shape[1]}")
-    print(f"  Number of classes: {len(np.unique(y))}")
-    print(f"\nData points:")
-    for i, (x, label) in enumerate(zip(X, y)):
-        print(f"  Sample {i+1}: {x} -> Class {label}")
-    
-    # 1. Plot the dataset
+    # 1. Visualize the dataset
     plot_dataset(X, y, filename='dataset_plot.png')
     
     # 2. Train decision tree with different criteria
@@ -155,9 +140,7 @@ def run_validation():
     criteria = ['information_gain', 'gain_ratio', 'gini_index']
     
     for criterion in criteria:
-        print(f"\n{'─'*60}")
         print(f"Criterion: {criterion}")
-        print(f"{'─'*60}")
         
         clf = DecisionTreeClassifier(criterion=criterion, max_depth=5)
         clf.fit(X, y)
@@ -175,17 +158,6 @@ def run_validation():
     # 4. Compare with sklearn
     print("\n")
     our_clf, sklearn_clf = compare_with_sklearn(X, y, criterion='gini_index')
-    
-    print("\n" + "="*60)
-    print("VALIDATION COMPLETED SUCCESSFULLY!")
-    print("="*60)
-    print("\nKey observations:")
-    print("  ✓ The dataset is linearly separable")
-    print("  ✓ All criteria achieve 100% accuracy on this simple dataset")
-    print("  ✓ Decision tree structure printed above")
-    print("  ✓ Comparison with sklearn shows similar performance")
-    print("  ✓ Dataset visualization saved to 'dataset_plot.png'")
-
 
 if __name__ == '__main__':
     run_validation()
