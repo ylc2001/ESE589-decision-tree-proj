@@ -140,20 +140,6 @@ def main():
     print("="*60)
     X, y = make_circles(n_samples=1000, noise=0.2, factor=0.5, random_state=42)
     evaluate_on_dataset(X, y, "Circles Dataset")
-    
-    print("\n" + "="*60)
-    print("Summary")
-    print("="*60)
-    print("\nKey Observations:")
-    print("1. All three criteria perform similarly on most datasets")
-    print("2. Gain Ratio is often faster due to early stopping")
-    print("3. Gini Index and Information Gain typically have similar performance")
-    print("4. The choice of criterion may depend on the specific problem")
-    print("\nRecommendations:")
-    print("- Use Information Gain for interpretable splits")
-    print("- Use Gain Ratio for datasets with features of varying cardinality")
-    print("- Use Gini Index for computational efficiency")
-
 
 if __name__ == '__main__':
     main()
